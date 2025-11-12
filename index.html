@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>みどり | Flutterエンジニア</title>
+    <meta
+      name="description"
+      content="Flutterエンジニアみどりの自己紹介サイト。FlutterKaigi参加記念のミニプロフィール。"
+    />
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #f5fff7;
+        --ink: #153226;
+        --accent: #44c077;
+        --accent-strong: #14804b;
+        --muted: rgba(21, 50, 38, 0.65);
+        --card: #ffffff;
+        --card-alt: #e4f9eb;
+        font-family: "Klee One", "Hiragino Sans", "Yu Gothic", "Segoe UI",
+          sans-serif;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background: linear-gradient(150deg, var(--bg), #e2ffe9);
+        color: var(--ink);
+        min-height: 100vh;
+      }
+
+      img {
+        max-width: 100%;
+        display: block;
+      }
+
+      a {
+        color: inherit;
+      }
+
+      .page {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 40px 20px 80px;
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+      }
+
+      header {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 24px;
+        align-items: center;
+        background: var(--card);
+        border-radius: 28px;
+        padding: 32px;
+        box-shadow: 0 24px 55px rgba(16, 70, 45, 0.1);
+      }
+
+      .hero-copy h1 {
+        font-size: clamp(2.4rem, 5vw, 3rem);
+        margin: 0 0 12px;
+      }
+
+      .hero-copy p {
+        margin: 0 0 20px;
+        font-size: 1.05rem;
+        line-height: 1.8;
+      }
+
+      .tagline {
+        font-size: 0.95rem;
+        letter-spacing: 0.02em;
+        color: var(--muted);
+        margin-bottom: 16px;
+      }
+
+      .cta {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 12px 20px;
+        background: var(--accent);
+        color: #fff;
+        text-decoration: none;
+        border-radius: 999px;
+        font-weight: 600;
+        transition: transform 200ms ease, box-shadow 200ms ease;
+        box-shadow: 0 12px 25px rgba(68, 192, 119, 0.35);
+      }
+
+      .cta:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 18px 30px rgba(68, 192, 119, 0.35);
+      }
+
+      .hero-figure {
+        position: relative;
+        display: flex;
+        justify-content: center;
+      }
+
+      .hero-figure::after {
+        content: "FlutterKaigi 2025";
+        position: absolute;
+        bottom: -12px;
+        right: 12px;
+        background: var(--card-alt);
+        padding: 8px 16px;
+        border-radius: 999px;
+        font-size: 0.85rem;
+        font-weight: 600;
+      }
+
+      .hero-figure img {
+        width: min(280px, 70vw);
+        border-radius: 32px;
+        object-fit: cover;
+        box-shadow: 0 18px 35px rgba(16, 70, 45, 0.2);
+      }
+
+      .tag-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        padding: 0;
+        margin: 16px 0 0;
+        list-style: none;
+      }
+
+      .tag-list li {
+        padding: 8px 14px;
+        border-radius: 999px;
+        background: var(--card-alt);
+        font-size: 0.9rem;
+        font-weight: 600;
+      }
+
+      section {
+        background: var(--card);
+        border-radius: 28px;
+        padding: 28px;
+        box-shadow: 0 20px 40px rgba(16, 70, 45, 0.07);
+      }
+
+      section h2 {
+        margin: 0 0 18px;
+        font-size: 1.6rem;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 16px;
+      }
+
+      .card {
+        border-radius: 20px;
+        padding: 18px;
+        background: var(--card-alt);
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        text-decoration: none;
+        color: inherit;
+      }
+
+      .card strong {
+        font-size: 1.05rem;
+      }
+
+      .card span {
+        font-size: 0.9rem;
+        color: var(--muted);
+      }
+
+      .intro p {
+        margin: 0 0 12px;
+        line-height: 1.7;
+      }
+
+      .list {
+        display: grid;
+        gap: 12px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .list li {
+        padding: 16px;
+        border-radius: 16px;
+        background: var(--card-alt);
+      }
+
+      .list h3 {
+        margin: 0 0 6px;
+      }
+
+      footer {
+        text-align: center;
+        color: var(--muted);
+        font-size: 0.9rem;
+        padding: 20px 0 40px;
+      }
+
+      @media (max-width: 600px) {
+        header,
+        section {
+          padding: 22px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <header>
+        <div class="hero-copy">
+          <p class="tagline">Flutterエンジニア / きぶん屋工房（仮）</p>
+          <h1>こんにちは、みどりです！</h1>
+          <p>
+            退職してニートになりました！社長を目指してます。
+          </p>
+          <a class="cta" href="https://twitter.com/midori_work" target="_blank"
+            >Twitterでつながる →</a
+          >
+          <ul class="tag-list">
+            <li>変わり者</li>
+            <li>よく喋る</li>
+            <li>思いつきを行動に移すまでが早い</li>
+            <li>友達大事</li>
+            <li>ニート</li>
+            <li>社長なりたい</li>
+            <li>Flutter好き</li>
+          </ul>
+        </div>
+        <div class="hero-figure">
+          <img src="./image/icon.jpg" alt="みどりのアイコン" />
+        </div>
+      </header>
+
+      <section class="socials">
+        <h2>ソーシャルリンク</h2>
+        <div class="grid">
+          <a class="card" href="https://twitter.com/midori_work" target="_blank">
+            <strong>Twitter</strong>
+            <span>@midori_work</span>
+          </a>
+          <a
+            class="card"
+            href="https://www.linkedin.com/in/nanako-ikemoto-743a83292"
+            target="_blank"
+          >
+            <strong>LinkedIn</strong>
+            <span>nanako-ikemoto</span>
+          </a>
+          <a class="card" href="https://note.com/midori_saku" target="_blank">
+            <strong>note</strong>
+            <span>@midori_saku</span>
+          </a>
+          <a class="card" href="https://zenn.dev/midori_flutter" target="_blank">
+            <strong>Zenn</strong>
+            <span>@midori_flutter</span>
+          </a>
+        </div>
+      </section>
+
+      <section class="intro">
+        <h2>自己紹介</h2>
+        <p>
+          最近ニートになりました！
+          個人事業主として、屋号「きぶん屋工房」の社長「みどり」になるために、まずは年収20万！
+          ものづくりをのんびりしてます。
+        </p>
+        <p>
+          目標は「自分の作ったものの収益だけで月20万円」。まずは月10万円生活を成立させるべく挑戦中です。
+        </p>
+        <div class="grid">
+          <div class="card">
+            <strong>なりたい</strong>
+            <span>屋号「きぶん屋工房」 / 社長「みどり」</span>
+          </div>
+          <div class="card">
+            <strong>2年後の目標</strong>
+            <span>自作の作品の収益 月20万円</span>
+          </div>
+          <div class="card">
+            <strong>直近の取り組み</strong>
+            <span>お金がないので月10万円で暮らすべく自炊開始</span>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>技術スタック</h2>
+        <ul class="list">
+          <li>
+            <h3>Flutter</h3>
+            <p>
+              3年くらい使ってます。もっと綺麗なUIを作れる技術力を身に付けたい。
+            </p>
+          </li>
+          <li>
+            <h3>Figma</h3>
+            <p>基本的な操作ができます。世界観を大切にしたUI・UXを勉強中です。</p>
+          </li>
+          <li>
+            <h3>AI</h3>
+            <p>保守性高く、デザイン良く、機能を実装する方法が知りたいなぁ。</p>
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>リリースしたアプリ</h2>
+        <ul class="list">
+          <li>
+            <h3>気分グラフ MoodTrend</h3>
+            <p>気分の波を記録するアプリ。グラフとして振り返ることができます。</p>
+          </li>
+          <li>
+            <h3>うねうね</h3>
+            <p>家庭菜園の畝管理アプリ。畝ごとの土づくりを支援したいです。（Android）</p>
+          </li>
+          <li>
+            <h3>モーフ</h3>
+            <p>1週間の平均体重をグラフ化し、モチベの維持を助けたかった。（iOS）</p>
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>開発中</h2>
+        <ul class="list">
+          <li>
+            <h3>ダーリーと遊ぼ</h3>
+            <p>何にもしたくない日にベッドで見るYouTubeの時間割を提案。</p>
+          </li>
+          <li>
+            <h3>気分グラフ MoodTrend 機能追加</h3>
+            <p>グラフデータをダウンロードする機能を開発中。</p>
+          </li>
+          <li>
+            <h3>うねうね アップデート</h3>
+            <p>デザイン刷新＆iOS対応。世界観を重視した海外展開を目指したい。</p>
+          </li>
+        </ul>
+      </section>
+
+      <footer>
+        FlutterKaigi会場で気軽に声をかけてください！
+      </footer>
+    </main>
+  </body>
+</html>
