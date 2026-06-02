@@ -60,6 +60,12 @@
       color: var(--green);
     }
 
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
     nav {
       display: flex;
       gap: 20px;
@@ -75,6 +81,34 @@
 
     nav a:hover {
       color: var(--green);
+    }
+
+    .lang-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 2px;
+      background: var(--white);
+      border-radius: 16px;
+      padding: 3px;
+      box-shadow: var(--shadow);
+    }
+
+    .lang-toggle button {
+      background: transparent;
+      border: none;
+      color: var(--text-light);
+      padding: 4px 10px;
+      border-radius: 14px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      font-family: inherit;
+      cursor: pointer;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .lang-toggle button.active {
+      background: var(--green);
+      color: var(--white);
     }
 
     /* ===== メインコンテンツ ===== */
@@ -340,12 +374,21 @@
 
     /* ===== レスポンシブ ===== */
     @media (max-width: 600px) {
+      .header-right {
+        gap: 10px;
+      }
+
       nav {
-        gap: 12px;
+        gap: 10px;
       }
 
       nav a {
         font-size: 0.8rem;
+      }
+
+      .lang-toggle button {
+        padding: 3px 7px;
+        font-size: 0.7rem;
       }
 
       .hero h1 {
@@ -372,29 +415,35 @@
 
   <!-- ヘッダー -->
   <header>
-    <div class="logo">みどり</div>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#apps">Apps</a>
-      <a href="#skills">Skills</a>
-      <a href="#links">Links</a>
-    </nav>
+    <div class="logo" data-i18n="logo">みどり</div>
+    <div class="header-right">
+      <nav>
+        <a href="#about">About</a>
+        <a href="#apps">Apps</a>
+        <a href="#skills">Skills</a>
+        <a href="#links">Links</a>
+      </nav>
+      <div class="lang-toggle">
+        <button type="button" data-lang="ja">JA</button>
+        <button type="button" data-lang="en">EN</button>
+      </div>
+    </div>
   </header>
 
   <main>
 
     <!-- ヒーロー（自己紹介） -->
     <section class="hero" id="about">
-      <div class="hero-icon"><img src="image/avatar.jpg" alt="みどりのアイコン"></div>
-      <h1>みどり</h1>
-      <p class="subtitle">Flutter Engineer</p>
-      <p class="description">
+      <div class="hero-icon"><img src="image/avatar.jpg" alt="midori avatar"></div>
+      <h1 data-i18n="hero.title">みどり</h1>
+      <p class="subtitle">Flutter Developer</p>
+      <p class="description" data-i18n="hero.description">
         個人開発で月収益20万を目指しています！<br>
         おしゃべりや食べたり歌ったりが好きです！仲良くしてください！
       </p>
       <a href="https://x.com/midori_work" class="hero-cta" target="_blank" rel="noopener noreferrer">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-        Twitterはこちら！
+        <span data-i18n="hero.cta">Twitterはこちら！</span>
       </a>
     </section>
 
@@ -403,10 +452,10 @@
       <h2 class="section-title">Apps</h2>
       <div class="apps-list">
         <div class="app-card">
-          <div class="app-icon"><img src="image/kibun-graph.png" alt="MoodTrendアイコン"></div>
+          <div class="app-icon"><img src="image/kibun-graph.png" alt="MoodTrend"></div>
           <div class="app-info">
-            <h3>気分グラフ MoodTrend</h3>
-            <p>双極性障害を持つ方向けの、気分の波を記録するアプリ</p>
+            <h3 data-i18n="app.moodtrend.title">気分グラフ MoodTrend</h3>
+            <p data-i18n="app.moodtrend.desc">双極性障害を持つ方向けの、気分の波を記録するアプリ</p>
             <div class="store-links">
               <a href="https://apps.apple.com/jp/app/%E6%B0%97%E5%88%86%E3%82%B0%E3%83%A9%E3%83%95-%E5%8F%8C%E6%A5%B5%E6%80%A7%E9%9A%9C%E5%AE%B3-%E8%BA%81%E9%AC%B1%E3%82%B0%E3%83%A9%E3%83%95-moodtrend/id6480364789" class="store-link" target="_blank" rel="noopener noreferrer">App Store</a>
               <a href="https://play.google.com/store/apps/details?id=com.moodtrend.mood_trend_flutter" class="store-link android" target="_blank" rel="noopener noreferrer">Google Play</a>
@@ -414,10 +463,10 @@
           </div>
         </div>
         <div class="app-card">
-          <div class="app-icon"><img src="image/uneune.png" alt="うねうねアイコン"></div>
+          <div class="app-icon"><img src="image/uneune.png" alt="Uneune"></div>
           <div class="app-info">
-            <h3>畑 うねうね</h3>
-            <p>家庭菜園の栽培をシンプルに記録できるアプリ</p>
+            <h3 data-i18n="app.uneune.title">畑 うねうね</h3>
+            <p data-i18n="app.uneune.desc">家庭菜園の栽培をシンプルに記録できるアプリ</p>
             <div class="store-links">
               <a href="https://apps.apple.com/jp/app/%E7%95%91-%E5%AE%B6%E5%BA%AD%E8%8F%9C%E5%9C%92%E3%81%AE%E6%A0%BD%E5%9F%B9%E8%A8%98%E9%8C%B2-%E3%81%86%E3%81%AD%E3%81%86%E3%81%AD/id6754787388" class="store-link" target="_blank" rel="noopener noreferrer">App Store</a>
               <a href="https://play.google.com/store/apps/details?id=com.midori.uneune.android&hl=ja" class="store-link android" target="_blank" rel="noopener noreferrer">Google Play</a>
@@ -425,10 +474,10 @@
           </div>
         </div>
         <div class="app-card">
-          <div class="app-icon"><img src="image/moufu.png" alt="もうふアイコン"></div>
+          <div class="app-icon"><img src="image/moufu.png" alt="MOFU"></div>
           <div class="app-info">
-            <h3>モーフ</h3>
-            <p>2週間の平均体重をシンプルに記録・グラフ化できるアプリ</p>
+            <h3 data-i18n="app.mofu.title">モーフ</h3>
+            <p data-i18n="app.mofu.desc">2週間の平均体重をシンプルに記録・グラフ化できるアプリ</p>
             <div class="store-links">
               <a href="https://apps.apple.com/jp/app/%E3%83%A2%E3%83%BC%E3%83%95-%E5%B9%B3%E5%9D%87%E4%BD%93%E9%87%8D%E3%82%B0%E3%83%A9%E3%83%95-%E3%82%B7%E3%83%B3%E3%83%97%E3%83%AB%E8%A8%98%E9%8C%B2%E3%81%A7%E7%B0%A1%E5%8D%98%E3%81%AB%E3%83%A1%E3%83%A2/id6563147651" class="store-link" target="_blank" rel="noopener noreferrer">App Store</a>
               <a href="https://play.google.com/store/apps/details?id=com.midori.moufu&hl=ja" class="store-link android" target="_blank" rel="noopener noreferrer">Google Play</a>
@@ -444,19 +493,19 @@
       <div class="skills-list">
         <div class="skill-card">
           <h3>Flutter</h3>
-          <p>3年くらい使ってます。もっと綺麗なUIを作れる技術力を身に付けたい。</p>
+          <p data-i18n="skill.flutter.desc">3年くらい使ってます。もっと綺麗なUIを作れる技術力を身に付けたい。</p>
         </div>
         <div class="skill-card">
           <h3>Figma</h3>
-          <p>基本的な操作ができます。世界観を大切にしたUI・UXを勉強中です。</p>
+          <p data-i18n="skill.figma.desc">基本的な操作ができます。世界観を大切にしたUI・UXを勉強中です。</p>
         </div>
         <div class="skill-card">
           <h3>AI</h3>
-          <p>保守性高く、機能を実装する方法を模索中です。</p>
+          <p data-i18n="skill.ai.desc">保守性高く、機能を実装する方法を模索中です。</p>
         </div>
         <div class="skill-card">
-          <h3>ショート動画</h3>
-          <p>TikTokショートなどのアプリの宣伝動画を作成しています。</p>
+          <h3 data-i18n="skill.video.title">ショート動画</h3>
+          <p data-i18n="skill.video.desc">TikTokショートなどのアプリの宣伝動画を作成しています。</p>
         </div>
       </div>
     </section>
@@ -510,6 +559,71 @@
   <footer>
     <p>&copy; 2026 midori</p>
   </footer>
+
+  <script>
+    const I18N = {
+      ja: {
+        'title': 'みどり - モバイルアプリエンジニア',
+        'logo': 'みどり',
+        'hero.title': 'みどり',
+        'hero.description': '個人開発で月収益20万を目指しています！<br>おしゃべりや食べたり歌ったりが好きです！仲良くしてください！',
+        'hero.cta': 'Twitterはこちら！',
+        'app.moodtrend.title': '気分グラフ MoodTrend',
+        'app.moodtrend.desc': '双極性障害を持つ方向けの、気分の波を記録するアプリ',
+        'app.uneune.title': '畑 うねうね',
+        'app.uneune.desc': '家庭菜園の栽培をシンプルに記録できるアプリ',
+        'app.mofu.title': 'モーフ',
+        'app.mofu.desc': '2週間の平均体重をシンプルに記録・グラフ化できるアプリ',
+        'skill.flutter.desc': '3年くらい使ってます。もっと綺麗なUIを作れる技術力を身に付けたい。',
+        'skill.figma.desc': '基本的な操作ができます。世界観を大切にしたUI・UXを勉強中です。',
+        'skill.ai.desc': '保守性高く、機能を実装する方法を模索中です。',
+        'skill.video.title': 'ショート動画',
+        'skill.video.desc': 'TikTokショートなどのアプリの宣伝動画を作成しています。',
+      },
+      en: {
+        'title': 'midori - Mobile App Developer',
+        'logo': 'midori',
+        'hero.title': 'midori',
+        'hero.description': "Aiming for ¥200K/month from indie app development!<br>I love chatting, eating, and singing! Let's be friends!",
+        'hero.cta': 'Follow me on Twitter!',
+        'app.moodtrend.title': 'MoodTrend',
+        'app.moodtrend.desc': 'A mood tracking app for people with bipolar disorder',
+        'app.uneune.title': 'Hatake Uneune',
+        'app.uneune.desc': 'A simple app for recording your home garden cultivation',
+        'app.mofu.title': 'MOFU',
+        'app.mofu.desc': 'A simple app for recording and graphing your 2-week average weight',
+        'skill.flutter.desc': "Been using it for about 3 years. I want to build skills to create more beautiful UIs.",
+        'skill.figma.desc': 'I can do basic operations. Studying UI/UX with attention to atmosphere and worldview.',
+        'skill.ai.desc': 'Exploring ways to implement features with high maintainability.',
+        'skill.video.title': 'Short Videos',
+        'skill.video.desc': 'Creating promotional short videos for apps on TikTok and other platforms.',
+      },
+    };
+
+    function applyLang(lang) {
+      const dict = I18N[lang] || I18N.ja;
+      document.documentElement.lang = lang;
+      if (dict['title']) document.title = dict['title'];
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (dict[key] !== undefined) el.innerHTML = dict[key];
+      });
+      document.querySelectorAll('.lang-toggle button').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.lang === lang);
+      });
+      try { localStorage.setItem('lang', lang); } catch (e) {}
+    }
+
+    (function initLang() {
+      let saved = null;
+      try { saved = localStorage.getItem('lang'); } catch (e) {}
+      const lang = saved || (navigator.language && navigator.language.startsWith('en') ? 'en' : 'ja');
+      applyLang(lang);
+      document.querySelectorAll('.lang-toggle button').forEach(btn => {
+        btn.addEventListener('click', () => applyLang(btn.dataset.lang));
+      });
+    })();
+  </script>
 
 </body>
 </html>
