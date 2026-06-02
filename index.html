@@ -150,6 +150,32 @@
       color: var(--text-light);
       max-width: 480px;
       font-size: 0.95rem;
+      margin-bottom: 28px;
+    }
+
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--orange);
+      color: var(--white);
+      text-decoration: none;
+      padding: 14px 28px;
+      border-radius: 28px;
+      font-size: 1rem;
+      font-weight: 700;
+      box-shadow: 0 4px 16px rgba(244, 162, 97, 0.35);
+      transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+    }
+
+    .hero-cta:hover {
+      background: #e08a4a;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(244, 162, 97, 0.45);
+    }
+
+    .hero-cta svg {
+      flex-shrink: 0;
     }
 
     /* ===== アプリ一覧 ===== */
@@ -379,6 +405,10 @@
         個人開発で月収益20万を目指しています！<br>
         おしゃべりや食べたり歌ったりが好きです！仲良くしてください！
       </p>
+      <a href="https://x.com/midori_work" class="hero-cta" target="_blank" rel="noopener noreferrer">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        Twitterはこちら！
+      </a>
     </section>
 
     <!-- アプリ一覧 -->
