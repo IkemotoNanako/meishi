@@ -233,24 +233,37 @@
     }
 
     /* ===== スキル ===== */
-    .skills-grid {
+    .skills-list {
       display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
+      flex-direction: column;
+      gap: 16px;
     }
 
-    .skill-tag {
-      background: var(--green-light);
-      color: #3d8a5a;
-      padding: 10px 20px;
-      border-radius: 24px;
+    .skill-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 20px 24px;
+      box-shadow: var(--shadow);
+      border-left: 4px solid var(--green);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    }
+
+    .skill-card h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--green);
+      margin-bottom: 6px;
+    }
+
+    .skill-card p {
+      color: var(--text-light);
       font-size: 0.9rem;
-      font-weight: 500;
-      transition: transform 0.3s;
-    }
-
-    .skill-tag:hover {
-      transform: translateY(-2px);
+      line-height: 1.7;
     }
 
     /* ===== リンク集 ===== */
@@ -363,8 +376,8 @@
       <h1>みどり</h1>
       <p class="subtitle">Flutter Engineer</p>
       <p class="description">
-        Flutterでモバイルアプリを作っています。
-        ユーザーの日常にそっと寄り添うアプリを目指して開発しています。
+        個人開発で月収益20万を目指しています！<br>
+        おしゃべりや食べたり歌ったりが好きです！仲良くしてください！
       </p>
     </section>
 
@@ -410,12 +423,19 @@
     <!-- スキル/技術スタック -->
     <section id="skills">
       <h2 class="section-title">Skills</h2>
-      <div class="skills-grid">
-        <span class="skill-tag">Flutter</span>
-        <span class="skill-tag">Dart</span>
-        <span class="skill-tag">Firebase</span>
-        <span class="skill-tag">UI/UX</span>
-        <span class="skill-tag">ショート動画</span>
+      <div class="skills-list">
+        <div class="skill-card">
+          <h3>Flutter</h3>
+          <p>3年くらい使ってます。もっと綺麗なUIを作れる技術力を身に付けたい。</p>
+        </div>
+        <div class="skill-card">
+          <h3>Figma</h3>
+          <p>基本的な操作ができます。世界観を大切にしたUI・UXを勉強中です。</p>
+        </div>
+        <div class="skill-card">
+          <h3>AI</h3>
+          <p>保守性高く、デザイン良く、機能を実装する方法が知りたいなぁ。</p>
+        </div>
       </div>
     </section>
 
